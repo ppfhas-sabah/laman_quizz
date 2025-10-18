@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quiz Zone Soft Style</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="top-bar">
+    <div class="logo-area">
+      <img src="logo.jpeg" alt="Logo" />
+      <span>Quiz Zone</span>
+    </div>
+    <div class="right-section">
+      <div class="notification" id="notifBell">
+        🔔
+        <span class="badge">!</span>
+      </div>
+
+      <!-- Titik tiga -->
+      <div class="menu-dots" id="menuDots">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+
+        <div class="dropdown" id="dropdownMenu">
+          <a href="https://ppfhas-sabah.github.io/personal_web/?fbclid=PAb21jcANgR4NleHRuA2FlbQIxMQABp5dfEHn48htfHbtdnkctmQovvHVgGJXTl3BLKUkCijjaP0vYIF4pG6rAIQ70_aem_0z7EXGSinvOhRcmj6ztDzQ" target="_blank">🌐 Website Kami</a>
+          <a href="https://ppfhas-sabah.github.io/anonim_chat/?fbclid=PAb21jcANgR7ZleHRuA2FlbQIxMQABp1Hd72KPtBLmHpS3o341WX-wFh7yjfLnBLEpvoaXZYehariNFr2bxy1AjqKE_aem_j3sgKdEYvmVhWJWrt7z9UA" target="_blank">💬 Chat Anonim</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="main-card">
+    <h1>Selamat Datang 👋</h1>
+    <p>Pilih kategori kuis yang ingin kamu coba!</p>
+
+    <div class="quiz-buttons">
+      <a href="https://ppfhas-sabah.github.io/kuis_pengetahuan-Nahwu-sorof/" target="_blank" class="btn btn-nahwu">📚 Kuis Nahwu & Sorof dasar</a>
+      <a href="https://ppfhas-sabah.github.io/kuis_pengetahuan-sejarah/" target="_blank" class="btn btn-sejarah">📜 Kuis Sejarah Nabi Muhammad SAW</a>
+      <a href="https://ppfhas-sabah.github.io/kuis_pengetahuan_islam/" target="_blank" class="btn btn-islam">🕋 Kuis Pengetahuan Dasar Islam</a>
+
+      <button class="btn btn-exit" id="exitBtn">🚪 Keluar Aplikasi</button>
+    </div>
+
+    <p class="note">Kuis akan terbuka di tab baru 🌐</p>
+  </main>
+
+  <!-- POPUP NOTIFIKASI -->
+  <div class="popup" id="notifPopup">
+    <div class="popup-content">
+      <h3>📢 Info Developer</h3>
+      <p>Kini seluruh kuis telah digabung dalam satu tampilan agar kamu bisa belajar dengan lebih mudah dan seru!</p>
+      <button class="btn-close" id="closePopup">Tutup</button>
+    </div>
+  </div>
+
+  <script>
+    // Notifikasi
+    const notif = document.getElementById("notifBell");
+    const popup = document.getElementById("notifPopup");
+    const closePopup = document.getElementById("closePopup");
+
+    notif.addEventListener("click", () => {
+      popup.classList.add("show");
+      document.querySelector(".badge").style.display = "none";
+    });
+
+    closePopup.addEventListener("click", () => {
+      popup.classList.remove("show");
+    });
+
+    // Tombol keluar
+    document.getElementById("exitBtn").addEventListener("click", () => {
+      window.close();
+      setTimeout(() => {
+        alert("Silakan tutup tab ini secara manual jika belum tertutup otomatis.");
+      }, 200);
+    });
+
+    // Titik tiga dropdown
+    const menuDots = document.getElementById("menuDots");
+    const dropdown = document.getElementById("dropdownMenu");
+
+    menuDots.addEventListener("click", (e) => {
+      e.stopPropagation();
+      dropdown.classList.toggle("show");
+    });
+
+    document.addEventListener("click", () => {
+      dropdown.classList.remove("show");
+    });
+  </script>
+</body>
+</html>
